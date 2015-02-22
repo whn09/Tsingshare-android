@@ -36,6 +36,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -296,7 +299,31 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 // 发送请求
                 HttpResponse response = httpClient.execute(httpPost);
                 // 显示响应
-                Log.i("response", response.toString());
+                showResponseResult(response);
+
+                /*
+                // 使用GET方法发送请求,需要把参数加在URL后面，用?连接，参数之间用&分隔
+            String url = R.string.api_url+"/auth/signin" + "?username=" + mUsername + "&password=" + mPassword;
+
+            // 生成请求对象
+            HttpGet httpGet = new HttpGet(url);
+            HttpClient httpClient = new DefaultHttpClient();
+
+            // 发送请求
+            try
+            {
+
+                HttpResponse response = httpClient.execute(httpGet);
+
+                // 显示响应
+                showResponseResult(response);// 一个私有方法，将响应结果显示出来
+
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+                */
             } catch (Exception e) {
                 return false;
             }
@@ -311,6 +338,41 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             // TODO: register the new account here.
             return true;
+        }
+
+        /**
+         * 显示响应结果到命令行和TextView
+         * @param response
+         */
+        private void showResponseResult(HttpResponse response)
+        {
+            if (null == response)
+            {
+                return;
+            }
+
+            HttpEntity httpEntity = response.getEntity();
+            try
+            {
+                InputStream inputStream = httpEntity.getContent();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(
+                        inputStream));
+                String result = "";
+                String line = "";
+                while (null != (line = reader.readLine()))
+                {
+                    result += line;
+
+                }
+
+                System.out.println(result);
+                Log.i("Response", "Response Content from server: " + result);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
         }
 
         @Override
