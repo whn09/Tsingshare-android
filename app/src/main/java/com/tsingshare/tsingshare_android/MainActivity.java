@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.util.Log;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -38,6 +40,8 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("Title", "onCreate");
+        Toast.makeText(getApplicationContext(), "onCreate", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
