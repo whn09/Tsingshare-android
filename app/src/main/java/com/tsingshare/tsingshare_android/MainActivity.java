@@ -2,6 +2,7 @@ package com.tsingshare.tsingshare_android;
 
 import java.util.Locale;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -72,7 +73,44 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_login) {
+            Toast.makeText(getApplicationContext(), "login", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
+            return true;
+        }
+        else if (id == R.id.action_register) {
+            Toast.makeText(getApplicationContext(), "register", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
+            return true;
+        }
+        else if (id == R.id.action_forget_password) {
+            Toast.makeText(getApplicationContext(), "forget password", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, ForgetPasswordActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
+            return true;
+        }
+        else if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "settings", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
             return true;
         }
 

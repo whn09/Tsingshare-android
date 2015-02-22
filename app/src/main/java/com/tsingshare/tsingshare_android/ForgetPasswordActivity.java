@@ -126,7 +126,7 @@ public class ForgetPasswordActivity extends Activity implements LoaderCallbacks<
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError(getString(R.string.error_invalid_username));
             focusView = mEmailView;
             cancel = true;
         }
