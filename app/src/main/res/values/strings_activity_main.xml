@@ -1,0 +1,6 @@
+<resources>
+    <!-- Strings related to main -->
+    <string name="message">Message</string>
+    <string name="discovery">Discovery</string>
+    <string name="me">Me</string>
+</resources>
