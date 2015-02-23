@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -26,6 +27,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -289,21 +291,32 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             try {
                 // Simulate network access.
                 //Thread.sleep(2000);
-                HttpEntity requestHttpEntity = new UrlEncodedFormEntity(pairList);
-                // URL使用基本URL即可，其中不需要加参数
-                HttpPost httpPost = new HttpPost(R.string.api_url+"/auth/signin");
-                // 将请求体内容加入请求中
-                httpPost.setEntity(requestHttpEntity);
-                // 需要客户端对象来发送请求
-                HttpClient httpClient = new DefaultHttpClient();
-                // 发送请求
-                HttpResponse response = httpClient.execute(httpPost);
-                // 显示响应
-                showResponseResult(response);
+                HttpClient client = new DefaultHttpClient();
+                String url=getString(R.string.api_url)+"/auth/signin";
+                Log.i("url", url);
+                HttpPost post = new HttpPost(url);
+                List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair("username",mUsername));
+                pairs.add(new BasicNameValuePair("password",mPassword));
+                post.setEntity(new UrlEncodedFormEntity(pairs));
+                HttpResponse response = client.execute(post);
+
+                BufferedReader rd = new BufferedReader(new InputStreamReader(
+                        response.getEntity().getContent()));
+                String line = null;
+                String responseString = "";
+
+                while ((line = rd.readLine()) != null) {
+
+                    responseString += line;
+
+                }
+                Log.i("response", responseString);
+                return true;
 
                 /*
                 // 使用GET方法发送请求,需要把参数加在URL后面，用?连接，参数之间用&分隔
-            String url = R.string.api_url+"/auth/signin" + "?username=" + mUsername + "&password=" + mPassword;
+            String url = getString(R.string.api_url)+"/auth/signin" + "?username=" + mUsername + "&password=" + mPassword;
 
             // 生成请求对象
             HttpGet httpGet = new HttpGet(url);
@@ -328,51 +341,16 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
+            /*for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mUsername)) {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
-            }
+            }*/
 
             // TODO: register the new account here.
-            return true;
-        }
-
-        /**
-         * 显示响应结果到命令行和TextView
-         * @param response
-         */
-        private void showResponseResult(HttpResponse response)
-        {
-            if (null == response)
-            {
-                return;
-            }
-
-            HttpEntity httpEntity = response.getEntity();
-            try
-            {
-                InputStream inputStream = httpEntity.getContent();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(
-                        inputStream));
-                String result = "";
-                String line = "";
-                while (null != (line = reader.readLine()))
-                {
-                    result += line;
-
-                }
-
-                System.out.println(result);
-                Log.i("Response", "Response Content from server: " + result);
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-
+            //return true;
         }
 
         @Override
@@ -381,8 +359,17 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if (success) {
+                Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "张三");
+                bundle.putInt("age", 23);
+                intent.putExtras(bundle);//附带上额外的数据
+                startActivity(intent); ;
                 finish();
             } else {
+                Log.i("Username", mUsername);
+                Log.i("Password", mPassword);
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
