@@ -1,24 +1,29 @@
 package com.tsingshare.tsingshare_android;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.Toast;
@@ -41,6 +46,14 @@ public class MainActivity extends ActionBarActivity {
      */
     ViewPager mViewPager;
 
+    private ImageView imageView;// 动画图片
+    private TextView textView1,textView2,textView3;
+    private List<View> views;// Tab页面列表
+    private int offset = 0;// 动画图片偏移量
+    private int currIndex = 0;// 当前页卡编号
+    private int bmpW;// 动画图片宽度
+    private View view1,view2,view3;//各个页卡
+
     private SharedPreferences sp;
 
     @Override
@@ -50,20 +63,132 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        InitImageView();
+        InitTextView();
+        InitViewPager();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager = (ViewPager) findViewById(R.id.pager);
+        //mViewPager.setAdapter(mSectionsPagerAdapter);
 
         // Get login status
         sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
         Toast.makeText(getApplicationContext(), sp.getString("userid", ""), Toast.LENGTH_LONG).show();
     }
 
+    private void InitViewPager() {
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        views=new ArrayList<View>();
+        LayoutInflater inflater=getLayoutInflater();
+        view1=inflater.inflate(R.layout.activity_main_message, null);
+        view2=inflater.inflate(R.layout.activity_main_discovery, null);
+        view3=inflater.inflate(R.layout.activity_main_me, null);
+        views.add(view1);
+        views.add(view2);
+        views.add(view3);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setCurrentItem(0);
+        mViewPager.setOnPageChangeListener(new MyOnPageChangeListener());
+    }
+    /**
+     *  初始化头标
+     */
+
+    private void InitTextView() {
+        textView1 = (TextView) findViewById(R.id.text1);
+        textView2 = (TextView) findViewById(R.id.text2);
+        textView3 = (TextView) findViewById(R.id.text3);
+
+        textView1.setOnClickListener(new MyOnClickListener(0));
+        textView2.setOnClickListener(new MyOnClickListener(1));
+        textView3.setOnClickListener(new MyOnClickListener(2));
+    }
+
+    /**
+     2      * 初始化动画，这个就是页卡滑动时，下面的横线也滑动的效果，在这里需要计算一些数据
+     3 */
+
+    private void InitImageView() {
+        imageView= (ImageView) findViewById(R.id.cursor);
+        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.highlight_selected).getWidth();// 获取图片宽度
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int screenW = dm.widthPixels;// 获取分辨率宽度
+        offset = (screenW / 3 - bmpW) / 2;// 计算偏移量
+        Matrix matrix = new Matrix();
+        matrix.postTranslate(offset, 0);
+        imageView.setImageMatrix(matrix);// 设置动画初始位置
+    }
+
+    /**
+     *
+     * 头标点击监听 3 */
+    private class MyOnClickListener implements View.OnClickListener {
+        private int index=0;
+        public MyOnClickListener(int i){
+            index=i;
+        }
+        public void onClick(View v) {
+            mViewPager.setCurrentItem(index);
+        }
+
+    }
+
+    public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
+
+        int one = offset * 2 + bmpW;// 页卡1 -> 页卡2 偏移量
+        int two = one * 2;// 页卡1 -> 页卡3 偏移量
+        public void onPageScrollStateChanged(int arg0) {
+
+
+        }
+
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+
+        }
+
+        public void onPageSelected(int arg0) {
+            /*两种方法，这个是一种，下面还有一种，显然这个比较麻烦
+            Animation animation = null;
+            switch (arg0) {
+            case 0:
+                if (currIndex == 1) {
+                    animation = new TranslateAnimation(one, 0, 0, 0);
+                } else if (currIndex == 2) {
+                    animation = new TranslateAnimation(two, 0, 0, 0);
+                }
+                break;
+            case 1:
+                if (currIndex == 0) {
+                    animation = new TranslateAnimation(offset, one, 0, 0);
+                } else if (currIndex == 2) {
+                    animation = new TranslateAnimation(two, one, 0, 0);
+                }
+                break;
+            case 2:
+                if (currIndex == 0) {
+                    animation = new TranslateAnimation(offset, two, 0, 0);
+                } else if (currIndex == 1) {
+                    animation = new TranslateAnimation(one, two, 0, 0);
+                }
+                break;
+
+            }
+            */
+            Animation animation = new TranslateAnimation(one*currIndex, one*arg0, 0, 0);//显然这个比较简洁，只有一行代码。
+            currIndex = arg0;
+            animation.setFillAfter(true);// True:图片停在动画结束位置
+            animation.setDuration(300);
+            imageView.startAnimation(animation);
+            Toast.makeText(MainActivity.this, "您选择了"+ mViewPager.getCurrentItem()+"页卡", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
