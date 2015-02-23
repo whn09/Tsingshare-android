@@ -37,6 +37,8 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -63,7 +65,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mUsernameView;
+    private EditText mUsernameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -79,8 +81,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         setContentView(R.layout.activity_login);
 
         // Set up the login form.
-        mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
-        populateAutoComplete();
+        mUsernameView = (EditText) findViewById(R.id.username);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -102,14 +103,37 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }
         });
 
+        Button mShowRegisterButton = (Button) findViewById(R.id.show_register_button);
+        mShowRegisterButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "redirect to register", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "张三");
+                bundle.putInt("age", 23);
+                intent.putExtras(bundle);//附带上额外的数据
+                startActivity(intent); ;
+            }
+        });
+
+        Button mShowForgetPasswordButton = (Button) findViewById(R.id.show_forget_password_button);
+        mShowForgetPasswordButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "redirect to forget password", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "张三");
+                bundle.putInt("age", 23);
+                intent.putExtras(bundle);//附带上额外的数据
+                startActivity(intent); ;
+            }
+        });
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
-
-    private void populateAutoComplete() {
-        getLoaderManager().initLoader(0, null, this);
-    }
-
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -230,14 +254,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        List<String> emails = new ArrayList<String>();
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            emails.add(cursor.getString(ProfileQuery.ADDRESS));
-            cursor.moveToNext();
-        }
 
-        addEmailsToAutoComplete(emails);
     }
 
     @Override
@@ -253,16 +270,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
-    }
-
-
-    private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(LoginActivity.this,
-                        android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
-
-        mUsernameView.setAdapter(adapter);
     }
 
     /**
@@ -282,12 +289,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-            NameValuePair pair1 = new BasicNameValuePair("username", mUsername);
-            NameValuePair pair2 = new BasicNameValuePair("password", mPassword);
-
-            List<NameValuePair> pairList = new ArrayList<NameValuePair>();
-            pairList.add(pair1);
-            pairList.add(pair2);
             try {
                 // Simulate network access.
                 //Thread.sleep(2000);
@@ -312,7 +313,26 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
                 }
                 Log.i("response", responseString);
-                return true;
+
+                JSONTokener jsonParser = new JSONTokener(responseString);
+                // 此时还未读取任何json文本，直接读取就是一个JSONObject对象。
+                // 如果此时的读取位置在"name" : 了，那么nextValue就是"yuanzhifei89"（String）
+                JSONObject responseJson = (JSONObject) jsonParser.nextValue();
+                // 接下来的就是JSON对象的操作了
+                if(responseJson.has("_id")) {
+                    String userid = responseJson.getString("_id");
+                    String username = responseJson.getString("username");
+
+                    Log.i("userid", userid);
+                    Log.i("username", username);
+
+                    return true;
+                }
+                else {
+                    String message = responseJson.getString("message");
+                    Log.i("message", message);
+                    return false;
+                }
 
                 /*
                 // 使用GET方法发送请求,需要把参数加在URL后面，用?连接，参数之间用&分隔
