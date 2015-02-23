@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -90,7 +91,7 @@ public class MainActivity extends ActionBarActivity {
         views.add(view1);
         views.add(view2);
         views.add(view3);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(new MyViewPagerAdapter(views));
         mViewPager.setCurrentItem(0);
         mViewPager.setOnPageChangeListener(new MyOnPageChangeListener());
     }
@@ -122,6 +123,36 @@ public class MainActivity extends ActionBarActivity {
         Matrix matrix = new Matrix();
         matrix.postTranslate(offset, 0);
         imageView.setImageMatrix(matrix);// 设置动画初始位置
+    }
+
+    public class MyViewPagerAdapter extends PagerAdapter {
+        private List<View> mListViews;
+
+        public MyViewPagerAdapter(List<View> mListViews) {
+            this.mListViews = mListViews;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object)   {
+            container.removeView(mListViews.get(position));
+        }
+
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            container.addView(mListViews.get(position), 0);
+            return mListViews.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return  mListViews.size();
+        }
+
+        @Override
+        public boolean isViewFromObject(View arg0, Object arg1) {
+            return arg0==arg1;
+        }
     }
 
     /**
