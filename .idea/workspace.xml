@@ -26,15 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5468364-5a7a-4d31-9219-8c7901691247" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/ForgetPasswordActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/ForgetPasswordActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_activity_forget_password.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_activity_forget_password.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings_activity_register.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_activity_register.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Tsingshare-android.iws" />
@@ -63,67 +62,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RegisterActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9392265" vertical-offset="6780" max-vertical-offset="9320">
-              <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="3045">
+              <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3046#3413#0" expanded="true" />
-                <element signature="e#3402#3403#0" expanded="true" />
-                <element signature="e#3558#3707#0" expanded="true" />
-                <element signature="e#3696#3697#0" expanded="true" />
-                <element signature="e#3836#4371#0" expanded="true" />
-                <element signature="e#4360#4361#0" expanded="true" />
-                <element signature="e#5866#5908#0" expanded="true" />
-                <element signature="e#6112#6152#0" expanded="true" />
-                <element signature="e#6308#6350#0" expanded="true" />
-                <element signature="e#6508#6548#0" expanded="true" />
-                <element signature="e#6701#6743#0" expanded="true" />
-                <element signature="e#6894#6934#0" expanded="true" />
-                <element signature="e#7075#7114#0" expanded="true" />
-                <element signature="e#7270#7310#0" expanded="true" />
-                <element signature="e#7466#7508#0" expanded="true" />
-                <element signature="e#7666#7706#0" expanded="true" />
-                <element signature="e#7859#7901#0" expanded="true" />
-                <element signature="e#9686#9926#0" expanded="true" />
-                <element signature="e#9911#9912#0" expanded="true" />
-                <element signature="e#10120#10356#0" expanded="true" />
-                <element signature="e#10341#10342#0" expanded="true" />
-                <element signature="e#13069#13096#0" expanded="true" />
-                <element signature="e#13256#13271#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5925927" vertical-offset="461" max-vertical-offset="1260">
-              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_register.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6666666" vertical-offset="1005" max-vertical-offset="1620">
-              <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.6733167" vertical-offset="1980" max-vertical-offset="6135">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding>
-                <element signature="e#3258#3288#0" expanded="true" />
-                <element signature="e#3693#3717#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#11302#11317#0" expanded="true" />
+                <element signature="e#12613#12640#0" expanded="true" />
               </folding>
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="6975">
+              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6057#6099#0" expanded="true" />
+                <element signature="e#6303#6343#0" expanded="true" />
+                <element signature="e#6499#6541#0" expanded="true" />
+                <element signature="e#6699#6739#0" expanded="true" />
+                <element signature="e#6892#6934#0" expanded="true" />
+                <element signature="e#7085#7125#0" expanded="true" />
+                <element signature="e#7266#7305#0" expanded="true" />
+                <element signature="e#7461#7501#0" expanded="true" />
+                <element signature="e#7657#7699#0" expanded="true" />
+                <element signature="e#7857#7897#0" expanded="true" />
+                <element signature="e#8050#8092#0" expanded="true" />
+                <element signature="e#13260#13287#0" expanded="true" />
+                <element signature="e#13447#13462#0" expanded="true" />
+                <element signature="e#15052#15079#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -793,19 +780,19 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/ForgetPasswordActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/configs.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings_activity_register.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings_activity_forget_password.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings_activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings_activity_forget_password.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/ForgetPasswordActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java" />
       </list>
     </option>
@@ -1347,7 +1334,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37004405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37004405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1570,14 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/ForgetPasswordActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1222" max-vertical-offset="4035">
-          <caret line="128" column="73" selection-start-line="128" selection-start-column="73" selection-end-line="128" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="401">
@@ -1655,14 +1634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_forget_password.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17482518" vertical-offset="0" max-vertical-offset="429">
-          <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/sdk/sources/android-21/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33167082" vertical-offset="10937" max-vertical-offset="89820">
@@ -1682,46 +1653,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23268698" vertical-offset="186" max-vertical-offset="750">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-          <folding>
-            <element signature="e#1351#1369#0" expanded="true" />
-            <element signature="e#1651#1669#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/configs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.045941807" vertical-offset="0" max-vertical-offset="653">
           <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25267994" vertical-offset="930" max-vertical-offset="2940">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1703125" vertical-offset="5021" max-vertical-offset="7467">
-          <caret line="290" column="70" selection-start-line="290" selection-start-column="70" selection-end-line="290" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11111#11126#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1733,14 +1669,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_forget_password.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26184538" vertical-offset="0" max-vertical-offset="401">
+          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6666666" vertical-offset="1005" max-vertical-offset="1620">
-          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-          <folding>
-            <element signature="e#3258#3288#0" expanded="true" />
-            <element signature="e#3693#3717#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.41828254" vertical-offset="1829" max-vertical-offset="2250">
+          <caret line="132" column="46" selection-start-line="132" selection-start-column="46" selection-end-line="132" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -1749,44 +1690,106 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5925927" vertical-offset="461" max-vertical-offset="1260">
-          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
-          <folding />
+        <state vertical-scroll-proportion="0.3434903" vertical-offset="671" max-vertical-offset="1470">
+          <caret line="53" column="48" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="48" />
+          <folding>
+            <element signature="e#2724#2754#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/ForgetPasswordActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9392265" vertical-offset="6780" max-vertical-offset="9320">
-          <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4" vertical-offset="4350" max-vertical-offset="5685">
+          <caret line="306" column="33" selection-start-line="306" selection-start-column="33" selection-end-line="306" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3046#3413#0" expanded="true" />
-            <element signature="e#3402#3403#0" expanded="true" />
-            <element signature="e#3558#3707#0" expanded="true" />
-            <element signature="e#3696#3697#0" expanded="true" />
-            <element signature="e#3836#4371#0" expanded="true" />
-            <element signature="e#4360#4361#0" expanded="true" />
-            <element signature="e#5866#5908#0" expanded="true" />
-            <element signature="e#6112#6152#0" expanded="true" />
-            <element signature="e#6308#6350#0" expanded="true" />
-            <element signature="e#6508#6548#0" expanded="true" />
-            <element signature="e#6701#6743#0" expanded="true" />
-            <element signature="e#6894#6934#0" expanded="true" />
-            <element signature="e#7075#7114#0" expanded="true" />
-            <element signature="e#7270#7310#0" expanded="true" />
-            <element signature="e#7466#7508#0" expanded="true" />
-            <element signature="e#7666#7706#0" expanded="true" />
-            <element signature="e#7859#7901#0" expanded="true" />
-            <element signature="e#9686#9926#0" expanded="true" />
-            <element signature="e#9911#9912#0" expanded="true" />
-            <element signature="e#10120#10356#0" expanded="true" />
-            <element signature="e#10341#10342#0" expanded="true" />
-            <element signature="e#13069#13096#0" expanded="true" />
-            <element signature="e#13256#13271#0" expanded="true" />
+            <element signature="e#2573#2953#0" expanded="true" />
+            <element signature="e#2942#2943#0" expanded="true" />
+            <element signature="e#3097#3252#0" expanded="true" />
+            <element signature="e#3241#3242#0" expanded="true" />
+            <element signature="e#4082#4623#0" expanded="true" />
+            <element signature="e#4612#4613#0" expanded="true" />
+            <element signature="e#5491#5531#0" expanded="true" />
+            <element signature="e#5684#5726#0" expanded="true" />
+            <element signature="e#7630#7866#0" expanded="true" />
+            <element signature="e#7851#7852#0" expanded="true" />
+            <element signature="e#9763#9764#0" expanded="true" />
+            <element signature="e#9807#9808#0" expanded="true" />
+            <element signature="e#10146#10173#0" expanded="true" />
+            <element signature="e#10333#10348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46814406" vertical-offset="446" max-vertical-offset="1215">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding>
+            <element signature="e#294#327#0" expanded="true" />
+            <element signature="e#352#387#0" expanded="true" />
+            <element signature="e#413#448#0" expanded="true" />
+            <element signature="e#472#505#0" expanded="true" />
+            <element signature="e#1071#1102#0" expanded="true" />
+            <element signature="e#1750#1768#0" expanded="true" />
+            <element signature="e#1969#1987#0" expanded="true" />
+            <element signature="e#2413#2429#0" expanded="true" />
+            <element signature="e#2666#2690#0" expanded="true" />
+            <element signature="e#3037#3049#0" expanded="true" />
+            <element signature="e#3348#3372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="3045">
+          <caret line="61" column="27" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="6975">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6057#6099#0" expanded="true" />
+            <element signature="e#6303#6343#0" expanded="true" />
+            <element signature="e#6499#6541#0" expanded="true" />
+            <element signature="e#6699#6739#0" expanded="true" />
+            <element signature="e#6892#6934#0" expanded="true" />
+            <element signature="e#7085#7125#0" expanded="true" />
+            <element signature="e#7266#7305#0" expanded="true" />
+            <element signature="e#7461#7501#0" expanded="true" />
+            <element signature="e#7657#7699#0" expanded="true" />
+            <element signature="e#7857#7897#0" expanded="true" />
+            <element signature="e#8050#8092#0" expanded="true" />
+            <element signature="e#13260#13287#0" expanded="true" />
+            <element signature="e#13447#13462#0" expanded="true" />
+            <element signature="e#15052#15079#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/tsingshare/tsingshare_android/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6733167" vertical-offset="1980" max-vertical-offset="6135">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11302#11317#0" expanded="true" />
+            <element signature="e#12613#12640#0" expanded="true" />
           </folding>
         </state>
       </provider>

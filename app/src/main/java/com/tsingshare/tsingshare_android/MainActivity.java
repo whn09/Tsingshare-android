@@ -2,7 +2,9 @@ package com.tsingshare.tsingshare_android;
 
 import java.util.Locale;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -39,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
      */
     ViewPager mViewPager;
 
+    private SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("Title", "onCreate");
@@ -55,6 +59,9 @@ public class MainActivity extends ActionBarActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        // Get login status
+        sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
+        Toast.makeText(getApplicationContext(), sp.getString("userid", ""), Toast.LENGTH_LONG).show();
     }
 
 

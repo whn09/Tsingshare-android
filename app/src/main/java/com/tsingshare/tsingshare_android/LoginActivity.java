@@ -6,9 +6,11 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -69,6 +71,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +137,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
     }
 
     /**
@@ -322,9 +328,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 if(responseJson.has("_id")) {
                     String userid = responseJson.getString("_id");
                     String username = responseJson.getString("username");
+                    String displayName = responseJson.getString("displayName");
+                    String headimg = getString(R.string.api_url)+"/"+responseJson.getString("headimg");
 
                     Log.i("userid", userid);
                     Log.i("username", username);
+
+                    // Save login status
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("userid", userid);
+                    editor.putString("displayName", displayName);
+                    editor.putString("username", username);
+                    editor.putString("headimg", headimg);
+                    editor.commit();
 
                     return true;
                 }

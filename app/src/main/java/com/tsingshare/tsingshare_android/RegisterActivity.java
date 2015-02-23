@@ -5,9 +5,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -69,6 +71,8 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
     private View mProgressView;
     private View mRegisterFormView;
 
+    private SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -122,6 +126,8 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
 
         mRegisterFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
+
+        sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
     }
 
     private void populateAutoComplete() {
@@ -377,9 +383,19 @@ public class RegisterActivity extends Activity implements LoaderCallbacks<Cursor
                 if(responseJson.has("_id")) {
                     String userid = responseJson.getString("_id");
                     String username = responseJson.getString("username");
+                    String displayName = responseJson.getString("displayName");
+                    String headimg = getString(R.string.api_url)+"/"+responseJson.getString("headimg");
 
                     Log.i("userid", userid);
                     Log.i("username", username);
+
+                    // Save login status
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("userid", userid);
+                    editor.putString("displayName", displayName);
+                    editor.putString("username", username);
+                    editor.putString("headimg", headimg);
+                    editor.commit();
 
                     return true;
                 }
