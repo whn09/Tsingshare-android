@@ -15,40 +15,86 @@
         tools:context=".MainActivity" />
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayout0"
         android:layout_width="match_parent"
-        android:layout_height="40.0dip"
+        android:layout_height="45.0dip"
+        android:orientation="horizontal"
         android:background="#FFFFFF" >
 
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="0dip"
+            android:layout_height="45.0dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="#FFFFFF">
+        <ImageView
+            android:id="@+id/first"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="matrix"
+            android:src="@drawable/first" />
         <TextView
             android:id="@+id/text1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="12dp"
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="@string/message"
             android:textColor="#000000"
-            android:textSize="20.0dip" />
+            android:textSize="10.0dip" />
+            </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dip"
+            android:layout_height="45.0dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="#FFFFFF" >
+        <ImageView
+            android:id="@+id/second"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="matrix"
+            android:src="@drawable/second" />
         <TextView
             android:id="@+id/text2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="12dp"
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="@string/discovery"
             android:textColor="#000000"
-            android:textSize="20.0dip" />
+            android:textSize="10.0dip" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dip"
+            android:layout_height="45.0dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="#FFFFFF" >
+        <ImageView
+            android:id="@+id/third"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="matrix"
+            android:src="@drawable/third" />
         <TextView
             android:id="@+id/text3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="12dp"
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="@string/me"
             android:textColor="#000000"
-            android:textSize="20.0dip" />
+            android:textSize="10.0dip" />
+        </LinearLayout>
     </LinearLayout>
 
     <ImageView

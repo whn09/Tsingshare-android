@@ -49,6 +49,8 @@ public class MainActivity extends ActionBarActivity {
 
     private ImageView imageView;// 动画图片
     private TextView textView1,textView2,textView3;
+    private ImageView imageView1,imageView2,imageView3;
+    private View layoutView1, layoutView2, layoutView3;
     private List<View> views;// Tab页面列表
     private int offset = 0;// 动画图片偏移量
     private int currIndex = 0;// 当前页卡编号
@@ -107,6 +109,22 @@ public class MainActivity extends ActionBarActivity {
         textView1.setOnClickListener(new MyOnClickListener(0));
         textView2.setOnClickListener(new MyOnClickListener(1));
         textView3.setOnClickListener(new MyOnClickListener(2));
+
+        imageView1 = (ImageView) findViewById(R.id.first);
+        imageView2 = (ImageView) findViewById(R.id.second);
+        imageView3 = (ImageView) findViewById(R.id.third);
+
+        imageView1.setOnClickListener(new MyOnClickListener(0));
+        imageView2.setOnClickListener(new MyOnClickListener(1));
+        imageView3.setOnClickListener(new MyOnClickListener(2));
+
+        layoutView1 = findViewById(R.id.linearLayout1);
+        layoutView2 = findViewById(R.id.linearLayout2);
+        layoutView3 = findViewById(R.id.linearLayout3);
+
+        layoutView1.setOnClickListener(new MyOnClickListener(0));
+        layoutView2.setOnClickListener(new MyOnClickListener(1));
+        layoutView3.setOnClickListener(new MyOnClickListener(2));
     }
 
     /**
