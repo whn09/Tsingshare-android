@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:background="#FF0000">
+    android:orientation="vertical">
 
     <ListView
         android:layout_width="match_parent"
@@ -31,6 +30,7 @@
         android:ems="10"
         android:id="@+id/editText"
         android:layout_weight="7"
+        android:hint="Instant Message"
         android:layout_gravity="bottom" />
 
         <Button
