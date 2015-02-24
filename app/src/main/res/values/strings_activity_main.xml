@@ -3,4 +3,6 @@
     <string name="message">Message</string>
     <string name="discovery">Discovery</string>
     <string name="me">Me</string>
+    <string name="send">Send</string>
+    <string name="plus">+</string>
 </resources>
