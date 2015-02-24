@@ -58,6 +58,7 @@ public class MainActivity extends ActionBarActivity {
     private View view1,view2,view3;//各个页卡
 
     private SharedPreferences sp;
+    private MessageModel messageModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +67,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Get login status
+        sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
+        Toast.makeText(getApplicationContext(), sp.getString("userid", ""), Toast.LENGTH_LONG).show();
+
         InitImageView();
         InitTextView();
         InitViewPager();
+        InitMessageList();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -78,9 +84,6 @@ public class MainActivity extends ActionBarActivity {
         //mViewPager = (ViewPager) findViewById(R.id.pager);
         //mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        // Get login status
-        sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
-        Toast.makeText(getApplicationContext(), sp.getString("userid", ""), Toast.LENGTH_LONG).show();
     }
 
     private void InitViewPager() {
@@ -106,17 +109,17 @@ public class MainActivity extends ActionBarActivity {
         textView2 = (TextView) findViewById(R.id.text2);
         textView3 = (TextView) findViewById(R.id.text3);
 
-        textView1.setOnClickListener(new MyOnClickListener(0));
-        textView2.setOnClickListener(new MyOnClickListener(1));
-        textView3.setOnClickListener(new MyOnClickListener(2));
+        //textView1.setOnClickListener(new MyOnClickListener(0));
+        //textView2.setOnClickListener(new MyOnClickListener(1));
+        //textView3.setOnClickListener(new MyOnClickListener(2));
 
         imageView1 = (ImageView) findViewById(R.id.first);
         imageView2 = (ImageView) findViewById(R.id.second);
         imageView3 = (ImageView) findViewById(R.id.third);
 
-        imageView1.setOnClickListener(new MyOnClickListener(0));
-        imageView2.setOnClickListener(new MyOnClickListener(1));
-        imageView3.setOnClickListener(new MyOnClickListener(2));
+        //imageView1.setOnClickListener(new MyOnClickListener(0));
+        //imageView2.setOnClickListener(new MyOnClickListener(1));
+        //imageView3.setOnClickListener(new MyOnClickListener(2));
 
         layoutView1 = findViewById(R.id.linearLayout1);
         layoutView2 = findViewById(R.id.linearLayout2);
@@ -141,6 +144,16 @@ public class MainActivity extends ActionBarActivity {
         Matrix matrix = new Matrix();
         matrix.postTranslate(offset, 0);
         imageView.setImageMatrix(matrix);// 设置动画初始位置
+    }
+
+    private void InitMessageList() {
+        messageModel = new MessageModel();
+        if(sp.getString("userid", "") == "") {
+            // DO nothing
+        }
+        else{
+            messageModel.getMessageList(sp.getString("userid", ""));
+        }
     }
 
     public class MyViewPagerAdapter extends PagerAdapter {

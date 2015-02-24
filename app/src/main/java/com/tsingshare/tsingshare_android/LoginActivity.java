@@ -349,30 +349,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     Log.i("message", message);
                     return false;
                 }
-
-                /*
-                // 使用GET方法发送请求,需要把参数加在URL后面，用?连接，参数之间用&分隔
-            String url = getString(R.string.api_url)+"/auth/signin" + "?username=" + mUsername + "&password=" + mPassword;
-
-            // 生成请求对象
-            HttpGet httpGet = new HttpGet(url);
-            HttpClient httpClient = new DefaultHttpClient();
-
-            // 发送请求
-            try
-            {
-
-                HttpResponse response = httpClient.execute(httpGet);
-
-                // 显示响应
-                showResponseResult(response);// 一个私有方法，将响应结果显示出来
-
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-                */
             } catch (Exception e) {
                 return false;
             }
