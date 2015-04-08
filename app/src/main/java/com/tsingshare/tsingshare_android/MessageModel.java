@@ -54,14 +54,66 @@ import java.util.List;
  */
 public class MessageModel extends Activity {
 
-    public MessageModel() {
-    }
+    Integer currentPage, totalPage, endPage, pageSize;
 
-    public List<String> getMessageList(String userid) {
+    public MessageModel(String userid) {
+        currentPage = 1;
+        totalPage = 1;
+        endPage = 1;
+        pageSize = 10;
         try
         {
             // 使用GET方法发送请求,需要把参数加在URL后面，用?连接，参数之间用&分隔
-            String url = "http://192.168.1.106:3000"+"/imessages" + "?userid=" + userid;
+            String url = getString(R.string.api_url)+"/imessages/count" + "?userid=" + userid;
+            Log.i("URL=", url);
+            // 生成请求对象
+            HttpGet httpGet = new HttpGet(url);
+            HttpClient httpClient = new DefaultHttpClient();
+
+            // 发送请求
+
+            HttpResponse response = httpClient.execute(httpGet);
+
+            // 显示响应
+            BufferedReader rd = new BufferedReader(new InputStreamReader(
+                    response.getEntity().getContent()));
+            String line = null;
+            String responseString = "";
+
+            while ((line = rd.readLine()) != null) {
+
+                responseString += line;
+
+            }
+            Log.i("response", responseString);
+            Integer.totalCount = Integer.parseInt(responseString);
+            if(totalCount % pageSize == 0) {
+                totalPage = totalCount / pageSize;
+            }
+            else {
+                totalPage = totalCount / pageSize + 1;
+            }
+            currentPage = totalPage;
+            endPage = totalPage;
+            // TODO
+            getMessageList(userid);
+        }
+        catch (Exception e)
+        {
+            Log.e("Get Error", "response error");
+            e.printStackTrace();
+        }
+    }
+
+    public List<String> getMessageList(String userid) {
+        if(currentPage == 0) {
+            return null;
+        }
+        try
+        {
+            // 使用GET方法发送请求,需要把参数加在URL后面，用?连接，参数之间用&分隔
+            String url = getString(R.string.api_url)+"/imessages" + "?userid=" + userid + "&page="+currentPage+"&pagesize="+pageSize;
+            currentPage--;
             Log.i("URL=", url);
             // 生成请求对象
             HttpGet httpGet = new HttpGet(url);
