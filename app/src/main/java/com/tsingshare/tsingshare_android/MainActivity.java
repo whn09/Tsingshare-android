@@ -59,22 +59,33 @@ public class MainActivity extends ActionBarActivity {
 
     private SharedPreferences sp;
     private MessageModel messageModel;
+    private List<String> messageList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("Title", "onCreate");
-        Toast.makeText(getApplicationContext(), "onCreate", Toast.LENGTH_LONG).show();
+        //Log.i("Title", "onCreate");
+        //Toast.makeText(getApplicationContext(), "onCreate", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Get login status
         sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
-        Toast.makeText(getApplicationContext(), sp.getString("userid", ""), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), sp.getString("userid", ""), Toast.LENGTH_LONG).show();
 
-        InitImageView();
-        InitTextView();
-        InitViewPager();
-        InitMessageList();
+        if(sp.getString("userid", "") == "") {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
+        }
+        else {
+            InitImageView();
+            InitTextView();
+            InitViewPager();
+            InitMessageList();
+        }
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -147,12 +158,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void InitMessageList() {
-        messageModel = new MessageModel();
         if(sp.getString("userid", "") == "") {
             // DO nothing
         }
         else{
-            messageModel.getMessageList(sp.getString("userid", ""));
+            messageModel = new MessageModel(getApplicationContext(), sp.getString("userid", ""));
+            messageList = messageModel.getMessageList(getApplicationContext(), sp.getString("userid", ""));
+            Log.i("InitMessageList", messageList.toString());
         }
     }
 
