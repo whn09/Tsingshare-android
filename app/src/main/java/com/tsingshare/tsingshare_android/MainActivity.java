@@ -59,7 +59,6 @@ public class MainActivity extends ActionBarActivity {
 
     private SharedPreferences sp;
     private MessageModel messageModel;
-    private List<String> messageList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,8 +162,7 @@ public class MainActivity extends ActionBarActivity {
         }
         else{
             messageModel = new MessageModel(getApplicationContext(), sp.getString("userid", ""));
-            messageList = messageModel.getMessageList(getApplicationContext(), sp.getString("userid", ""));
-            Log.i("InitMessageList", messageList.toString());
+            messageModel.getMessageList(getApplicationContext(), sp.getString("userid", ""));
         }
     }
 

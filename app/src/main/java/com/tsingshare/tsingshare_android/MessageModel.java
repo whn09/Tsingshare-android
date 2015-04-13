@@ -39,13 +39,9 @@ public class MessageModel extends Activity {
         mGetMessageCountTask.execute((Void) null);
     }
 
-    public List<String> getMessageList(Context context, String userid) {
-        if(currentPage == 0) {
-            return null;
-        }
+    public void getMessageList(Context context, String userid) {
         mGetMessageListTask = new GetMessageListTask(context, userid);
         mGetMessageListTask.execute((Void) null);
-        return messageList;
     }
 
     public class GetMessageCountTask extends AsyncTask<Void, Void, Boolean> {
