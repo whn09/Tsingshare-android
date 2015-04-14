@@ -129,7 +129,7 @@
             android:exported="true" />
         <!-- push结束 -->
 
-        <receiver
+        <!--<receiver
             android:name="com.baidu.frontia.module.deeplink.db.DLDataPushReceiver">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.SDK_MESSAGE" />
@@ -140,7 +140,7 @@
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <data android:scheme="package" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
         <!-- 在百度开发者中心查询应用的API Key -->
         <meta-data android:name="api_key" android:value="U47w6dK9HILqvqFzcTg051Zs" />
