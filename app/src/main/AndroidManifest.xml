@@ -36,8 +36,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateVisible" >
+            android:label="@string/title_activity_login">
         </activity>
         <activity
             android:name=".SettingsActivity"
@@ -45,13 +44,19 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:windowSoftInputMode="adjustResize|stateVisible" >
+            android:label="@string/title_activity_register">
         </activity>
         <activity
             android:name=".ForgetPasswordActivity"
-            android:label="@string/title_activity_forget_password"
-            android:windowSoftInputMode="adjustResize|stateVisible" >
+            android:label="@string/title_activity_forget_password">
+        </activity>
+        <activity
+            android:name=".PushDemoActivity"
+            android:label="@string/title_activity_forget_password">
+        </activity>
+        <activity
+            android:name=".BaiduLoginActivity"
+            android:label="@string/title_activity_forget_password">
         </activity>
 
         <!-- push富媒体，不使用富媒体推送不需要 -->

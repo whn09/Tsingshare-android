@@ -9,4 +9,8 @@
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_pushdemo" android:title="@string/action_pushdemo"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_baidulogin" android:title="@string/action_baidulogin"
+        android:orderInCategory="100" app:showAsAction="never" />
 </menu>

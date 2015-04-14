@@ -53,6 +53,8 @@ public class PushDemoActivity extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.i("Title", "PushDemoActivity onCreate");
+
         Utils.logStringCache = Utils.getLogText(getApplicationContext());
 
         Resources resource = this.getResources();
@@ -218,7 +220,7 @@ public class PushDemoActivity extends Activity implements View.OnClickListener {
             initButton.setText("登陆百度账号初始化Channel");
         }
         // 跳转到百度账号登录的activity
-        Intent intent = new Intent(PushDemoActivity.this, LoginActivity.class);
+        Intent intent = new Intent(PushDemoActivity.this, BaiduLoginActivity.class);
         startActivity(intent);
     }
 

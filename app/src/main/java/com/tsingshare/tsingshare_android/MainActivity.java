@@ -321,6 +321,26 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent); ;
             return true;
         }
+        else if (id == R.id.action_pushdemo) {
+            Toast.makeText(getApplicationContext(), "pushdemo", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, PushDemoActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
+            return true;
+        }
+        else if (id == R.id.action_baidulogin) {
+            Toast.makeText(getApplicationContext(), "baidulogin", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, BaiduLoginActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "张三");
+            bundle.putInt("age", 23);
+            intent.putExtras(bundle);//附带上额外的数据
+            startActivity(intent); ;
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

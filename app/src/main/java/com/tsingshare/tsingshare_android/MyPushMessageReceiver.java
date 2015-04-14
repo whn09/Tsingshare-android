@@ -166,9 +166,9 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
      */
     @Override
     public void onSetTags(Context context, int errorCode,
-            List<String> sucessTags, List<String> failTags, String requestId) {
+            List<String> successTags, List<String> failTags, String requestId) {
         String responseString = "onSetTags errorCode=" + errorCode
-                + " sucessTags=" + sucessTags + " failTags=" + failTags
+                + " successTags=" + successTags + " failTags=" + failTags
                 + " requestId=" + requestId;
         Log.d(TAG, responseString);
 
@@ -192,9 +192,9 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
      */
     @Override
     public void onDelTags(Context context, int errorCode,
-            List<String> sucessTags, List<String> failTags, String requestId) {
+            List<String> successTags, List<String> failTags, String requestId) {
         String responseString = "onDelTags errorCode=" + errorCode
-                + " sucessTags=" + sucessTags + " failTags=" + failTags
+                + " successTags=" + successTags + " failTags=" + failTags
                 + " requestId=" + requestId;
         Log.d(TAG, responseString);
 
