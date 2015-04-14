@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.Toast;
+import com.baidu.frontia.FrontiaApplication;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -66,6 +67,9 @@ public class MainActivity extends ActionBarActivity {
         //Toast.makeText(getApplicationContext(), "onCreate", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Use baidupush sdk
+        FrontiaApplication.initFrontiaApplication(getApplicationContext());
 
         // Get login status
         sp = this.getSharedPreferences("userInfo", Context.MODE_WORLD_READABLE);
