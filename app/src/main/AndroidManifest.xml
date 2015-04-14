@@ -19,6 +19,10 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -92,6 +96,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
                 <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+                <action android:name="com.baidu.android.pushservice.action.frontia.user" />
                 <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -123,6 +128,19 @@
             android:name="com.baidu.android.pushservice.CommandService"
             android:exported="true" />
         <!-- push结束 -->
+
+        <receiver
+            android:name="com.baidu.frontia.module.deeplink.db.DLDataPushReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.SDK_MESSAGE" />
+                <action android:name="com.baidu.android.pushservice.action.sdk.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
 
         <!-- 在百度开发者中心查询应用的API Key -->
         <meta-data android:name="api_key" android:value="U47w6dK9HILqvqFzcTg051Zs" />
