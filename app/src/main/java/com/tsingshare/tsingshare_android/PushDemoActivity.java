@@ -53,7 +53,7 @@ public class PushDemoActivity extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i("Title", "PushDemoActivity onCreate");
+        //Log.i("Title", "PushDemoActivity onCreate");
 
         Utils.logStringCache = Utils.getLogText(getApplicationContext());
 
@@ -206,6 +206,7 @@ public class PushDemoActivity extends Activity implements View.OnClickListener {
         PushManager.startWork(getApplicationContext(),
                 PushConstants.LOGIN_TYPE_API_KEY,
                 Utils.getMetaValue(PushDemoActivity.this, "api_key"));
+        Log.i("API_KEY", Utils.getMetaValue(PushDemoActivity.this, "api_key"));
     }
 
     // 以百度账号登陆，获取access token来绑定
